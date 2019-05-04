@@ -1,0 +1,126 @@
+{%  extends "base.html.twig" %}
+
+{% block contenu %}
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                Informations générales
+            </div>
+            <div class="card-body card-block">
+                <form action="{{ path('update_plat') }}" method="get" enctype="multipart/form-data" class="form-horizontal">
+                    <input type="hidden" name="idplat" value="{{ plat.id }}"/>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nom du plat</label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="nom" value="{{ plat.nom }}" name="nom" placeholder="Text" class="form-control"><small class="form-text text-muted">Entrez le nom du plat</small></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Prix</label></div>
+                        <div class="col-12 col-md-9"><input type="number" id="text-input" value="{{ plat.prix }}" name="prix" placeholder="Text" class="form-control"><small class="form-text text-muted">Entrez le prix du plat</small></div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Description courte</label></div>
+                        <div class="col-6 col-md-9"><textarea name="descriptioncourte" id="textarea-input" value="{{ plat.descriptioncourte }}"  rows="2" placeholder="Content..." class="form-control">{{ plat.descriptioncourte }}</textarea></div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Description longue</label></div>
+                        <div class="col-12 col-md-9"><textarea name="descriptionlongue" id="textarea-input"  rows="9" placeholder="Content..." class="form-control">{{ plat.descriptionlongue }}</textarea></div>
+                    </div>
+
+                    <button type="submit" value="ajout" name="type" class="btn btn-success btn-sm">
+                        <i class="fa fa-dot-circle-o"></i> Ajouter
+                    </button>
+                    <button type="submit" value="modification" name="type" class="btn btn-warning btn-sm">
+                        <i class="fa fa-ban"></i> Modifier
+                    </button>
+
+
+                    <button type="submit" value="suppression" name="type" class="btn btn-danger btn-sm">
+                        <i class="fa fa-ban"></i> Supprimer
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                Catégories
+            </div>
+            <div class="card-body card-block">
+                <div >
+                    {% for catplat in categories_plat %}
+                        <p>{{ catplat.nom }}  <a href="{{ path('categorie_plat',{'type':'suppression','idplat':plat.id,'idcategorie':catplat.id}) }}" class="btn btn-warning btn-sm">Supprimer</a></p>
+                    {% endfor %}
+                </div>
+                <form action="{{ path('categorie_plat') }}" method="get" enctype="multipart/form-data" class="form-horizontal">
+                    <input type="hidden" name="idplat" value="{{ plat.id }}"/>
+                    <div class="row form-group">
+                        <div class="col-12 col-md-9">
+                            <select name="idcategorie" id="select" class="form-control">
+                                {% for categorie in categories %}
+                                <option value="{{ categorie.id }}">{{ categorie.nom }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" value="ajout" name="type" class="btn btn-success btn-sm">
+                        <i class="fa fa-dot-circle-o"></i> Ajouter
+                    </button>
+                    <button type="submit" value="reinitialisation" name="type" class="btn btn-danger btn-sm">
+                        <i class="fa fa-ban"></i> Reinitialiser
+                    </button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header">
+                Images
+            </div>
+            <div class="card-body card-block">
+                <div class="">
+                    <center>
+                        <p> <img src="{{ plat.url }}" alt="{{ plat.descriptionimage }}" width="70" height="70"/> <a href="{{ path('image_plat',{'idimage':plat.idimage,'idplat':plat.id,'type':'suppression'}) }}" class="btn btn-warning btn-sm">Supprimer</a></p>
+
+                    </center>
+                    {% for image in images_plat %}
+                        <p> <img src="{{ image.url }}" width="70" height="70"/> <a href="{{ path('image_plat',{'idimage':image.id,'idplat':plat.id,'type':'suppression'}) }}" class="btn btn-warning btn-sm">Supprimer</a></p>
+                    {% endfor %}
+                </div>
+                <form action="{{ path('image_plat') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    <input type="hidden" name="idplat" value="{{ plat.id }}"/>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">Description </label></div>
+                        <div class="col-12 col-md-9"><input type="text" id="nom"  name="description" placeholder="Text" class="form-control"><small class="form-text text-muted">Description</small></div>
+                    </div>
+                    <label for="select" class=" form-control-label">Type</label>
+                    <div class="row form-group">
+                        <div class="col-12 col-md-9">
+                            <select name="typeimage" id="select" class="form-control">
+                                <option value="0">Principale</option>
+                                <option value="1">Detail</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="file-input" class=" form-control-label ">Fichier</label></div>
+                        <div class="col-12 col-md-9"><input type="file" id="file-input" accept="image/*" n
+                        </div>ame="fichier" class="form-control-file "></div>
+                    <button type="submit" name="type" value="ajout" class="btn btn-success btn-sm">
+                        <i class="fa fa-dot-circle-o"></i> Ajouter
+                    </button>
+                    <button type="submit" class="btn btn-danger btn-sm">
+                        <i class="fa fa-ban"></i> Reinitialiser
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

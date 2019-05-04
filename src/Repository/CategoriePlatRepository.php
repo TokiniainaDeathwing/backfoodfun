@@ -19,6 +19,7 @@ class CategoriePlatRepository extends ServiceEntityRepository
         parent::__construct($registry, CategoriePlat::class);
     }
 
+
     // /**
     //  * @return CategoriePlat[] Returns an array of CategoriePlat objects
     //  */
@@ -34,6 +35,7 @@ class CategoriePlatRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
     */
 
     /*

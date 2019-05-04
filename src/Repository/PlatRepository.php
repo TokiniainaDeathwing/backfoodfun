@@ -28,7 +28,7 @@ class PlatRepository extends ServiceEntityRepository
         $conn = $this->getEntityManager()->getConnection();
 
         $sql = '
-        SELECT p.*,i.url,i.description as descriptionimage,i.type
+        SELECT p.*,i.id as idimage,i.url,i.description as descriptionimage,i.type
          FROM plat p JOIN
           images i on i.idplat=p.id
           WHERE p.id = :id AND i.type=0;
@@ -106,6 +106,7 @@ class PlatRepository extends ServiceEntityRepository
         return $stmt->fetchAll();
     }
 
+
     public function searchPlat($limit,$offset,$nom,$categorie,$typeimage): array
     {
         $conn = $this->getEntityManager()->getConnection();
@@ -156,6 +157,33 @@ class PlatRepository extends ServiceEntityRepository
 
         // returns an array of arrays (i.e. a raw data set)
         return $stmt->fetchAll()[0]['nombre'];
+    }
+
+    public function getCategoriesPlat($id):array {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = '
+        SELECT c.id,c.nom from categorie c JOIN categorieplat cp on cp.idcategorie=c.id 
+        JOIN plat p ON  p.id=cp.idplat where p.id=:id;
+        ';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAll();
+
+    }
+    public function getPlat($id):array {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = '
+        SELECT c.id,c.nom from categorie c JOIN categorieplat cp on cp.idcategorie=c.id 
+        JOIN plat p ON  p.id=cp.idplat where p.id=:id;
+        ';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $stmt->fetchAll();
+
     }
     /*
     public function findOneBySomeField($value): ?Plat

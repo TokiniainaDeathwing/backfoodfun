@@ -31,6 +31,11 @@ class Images
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $idplat;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class Images
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getIdplat(): ?int
+    {
+        return $this->idplat;
+    }
+
+    public function setIdplat(int $idplat): self
+    {
+        $this->idplat = $idplat;
 
         return $this;
     }

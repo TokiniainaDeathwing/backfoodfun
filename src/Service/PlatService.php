@@ -1,6 +1,8 @@
 <?php
 namespace App\Service;
 
+use App\Entity\CategoriePlat;
+use App\Entity\Images;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use App\Entity\Plat;
 class PlatService
@@ -39,6 +41,14 @@ class PlatService
         return $product;
 
     }
+    public function getCategoriesPlatById($id){
+
+        $product = $this->re
+            ->getRepository(Plat::class)
+            ->getCategoriesPlat($id);
+        return $product;
+
+    }
 //find images
     public function getImagePlat($id):? array{
 
@@ -67,6 +77,41 @@ class PlatService
         return $product;
 
     }
+
+    public function insererPlat($nom,$descriptioncourte,$descriptionlongue,$prix){
+        $product=new Plat();
+        $product->setNom($nom);
+        $product->setDescriptioncourte($descriptioncourte);
+        $product->setDescriptionlongue($descriptionlongue);
+        $product->setPrix($prix);
+        $entityManager=$this->re->getManager();
+        $entityManager->persist($product);
+        $entityManager->flush();
+        //var_dump($product);
+        $imageService=new ImageService($this->re);
+        $imageService->insererPlatImage($product->getId(),"","insérer l'image principale",0);
+        return $product->getId();
+    }
+    public function deletePlat($id){
+        $product = $this->re
+            ->getRepository(Plat::class)
+            ->find($id);
+        $entityManager=$this->re->getManager();
+        if($product!=null){
+            $entityManager->remove($product);
+        }
+        $entityManager->flush();
+    }
+    public function updatePlat($id,$nom,$descriptioncourte,$descriptionlongue,$prix){
+        $entityManager=$this->re->getManager();
+        $product=$product = $entityManager->getRepository(Plat::class)->find($id);
+        $product->setNom($nom);
+        $product->setDescriptioncourte($descriptioncourte);
+        $product->setDescriptionlongue($descriptionlongue);
+        $product->setPrix($prix);
+        $entityManager->flush();
+    }
+
 
 
 }

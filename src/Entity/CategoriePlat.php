@@ -6,11 +6,13 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoriePlatRepository")
+ * @ORM\Table(name = "categorieplat")
  */
 class CategoriePlat
 {
     /**
      * @ORM\Id()
+     * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
     private $id;
