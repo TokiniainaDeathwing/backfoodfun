@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="514a4ffb-eb26-42d5-8a0e-22ab958ab2b0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/symfonyadmin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfonyadmin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PlatController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PlatController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/CategoriePlat.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CategoriePlat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Images.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Images.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CategoriePlatRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CategoriePlatRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PlatRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PlatRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/CategorieService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/CategorieService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/PlatService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PlatService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/fiche.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fiche.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -126,8 +111,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/fiche.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="91" column="167" selection-start-line="91" selection-start-column="167" selection-end-line="91" selection-end-column="167" />
+            <state relative-caret-position="119">
+              <caret line="91" column="166" selection-start-line="91" selection-start-column="166" selection-end-line="91" selection-end-column="166" />
             </state>
           </provider>
         </entry>
@@ -321,12 +306,12 @@
       <option name="presentableId" value="Default" />
       <updated>1556910023640</updated>
       <workItem from="1556910024949" duration="1934000" />
-      <workItem from="1556951583155" duration="27394000" />
+      <workItem from="1556951583155" duration="28022000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29328000" />
+    <option name="totallyTimeSpent" value="29956000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -551,8 +536,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/fiche.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="91" column="167" selection-start-line="91" selection-start-column="167" selection-end-line="91" selection-end-column="167" />
+        <state relative-caret-position="119">
+          <caret line="91" column="166" selection-start-line="91" selection-start-column="166" selection-end-line="91" selection-end-column="166" />
         </state>
       </provider>
     </entry>
