@@ -35,9 +35,13 @@ class CategorieService
     public function insererCategorie($nom){
         $product=new Categorie();
         $product->setNom($nom);
-
+        $cat = $this->re
+            ->getRepository(Categorie::class)
+            ->findOneBy(['nom'=>$nom]);
         $entityManager=$this->re->getManager();
-        $entityManager->persist($product);
+        if($cat==null) {
+            $entityManager->persist($product);
+        }
         $entityManager->flush();
     }
     public function deletePlatCategorie($idplat,$idcategorie){
@@ -54,9 +58,13 @@ class CategorieService
         $product=new CategoriePlat();
         $product->setIdcategorie($idcategorie);
         $product->setIdplat($idplat);
-
+        $catplat = $this->re
+            ->getRepository(CategoriePlat::class)
+            ->findOneBy(['idplat'=>$idplat,'idcategorie'=>$idcategorie]);
         $entityManager=$this->re->getManager();
-        $entityManager->persist($product);
+        if($catplat==null) {
+            $entityManager->persist($product);
+        }
         $entityManager->flush();
     }
 }
