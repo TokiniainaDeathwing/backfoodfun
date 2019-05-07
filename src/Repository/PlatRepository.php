@@ -97,7 +97,7 @@ class PlatRepository extends ServiceEntityRepository
          ca on ca.idplat=p.id 
          JOIN categorie c ON c.id=ca.idcategorie JOIN
           images i on i.idplat=p.id
-          WHERE c.nom = :cat AND i.type=:type;
+          WHERE c.nom = :cat AND i.type=:type group by p.id order by p.id limit;
         ';
         $stmt = $conn->prepare($sql);
         $stmt->execute(['cat' => $categorie,'type'=>$type]);
@@ -105,7 +105,6 @@ class PlatRepository extends ServiceEntityRepository
         // returns an array of arrays (i.e. a raw data set)
         return $stmt->fetchAll();
     }
-
 
     public function searchPlat($limit,$offset,$nom,$categorie,$typeimage): array
     {
@@ -125,7 +124,7 @@ class PlatRepository extends ServiceEntityRepository
         if($categorie!=""){
             $sql=$sql." and c.nom='".$categorie."'";
         }
-        $sql=$sql." order by p.id limit ".$offset.",".$limit;
+        $sql=$sql."group by p.id order by p.id limit ".$offset.",".$limit;
         $sql=$sql.";";
         $stmt = $conn->prepare($sql);
         $stmt->execute(['type'=>$typeimage]);
@@ -138,7 +137,8 @@ class PlatRepository extends ServiceEntityRepository
         $conn = $this->getEntityManager()->getConnection();
 
         $sql = '
-        SELECT count(*) as nombre
+        SELECT count(*) as nombre FROM(
+          SELECT p.*,c.nom as categorie,i.url,i.description as descriptionimage,i.type
          FROM plat p 
          JOIN categorieplat 
          ca on ca.idplat=p.id 
@@ -151,6 +151,7 @@ class PlatRepository extends ServiceEntityRepository
         if($categorie!=""){
             $sql=$sql." and c.nom='".$categorie."'";
         }
+        $sql=$sql." group by p.id order by p.id ) as t1";
         $sql=$sql.";";
         $stmt = $conn->prepare($sql);
         $stmt->execute(['type'=>$typeimage]);

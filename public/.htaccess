@@ -11,6 +11,6 @@
     RewriteRule .? - [L]
 
     # Rewrite all other queries to the front controller.
-    RewriteRule ^(.*)$ index.php [QSA,L]
+    RewriteRule ^(.*)$ index.php [L]
     #RewriteRule ^platos index.php[QSA,L]
 </IfModule>

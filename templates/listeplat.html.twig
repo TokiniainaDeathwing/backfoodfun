@@ -45,10 +45,10 @@
                     {% for result in results %}
                     <tr>
 
-                        <td> <img src="{{ result.url }}" alt="{{ result.descriptionimage }}" width="50" height="50"/></td>
-                        <td>{{ result.nom }}</td>
+                        <td><a href="{{ path('fiche',{'id':result.id}) }}"> <img src="{{ result.url }}" alt="{{ result.descriptionimage }}" width="50" height="50"/></a></td>
+                        <td><a href="{{ path('fiche',{'id':result.id}) }}">{{ result.nom }}</a></td>
                         <td>{{ result.descriptioncourte }}</td>
-                        <td>{{ result.prix }}</td>
+                        <td>{{ result.prix |number_format(2, '.', ',')}}</td>
                     </tr>
                     {% endfor %}
                     </tbody>
@@ -57,10 +57,10 @@
             </div>
             {% if(page>1) %}
 
-                <a href="{{ path('menu_page', {'query':query,'offset':(offset-limit),'limit':limit,'categorie':categorie} ,relative=false) }}" class="genric-btn primary-border circle">Précédent</a>
+                <a href="{{ path('index', {'query':query,'offset':(offset-limit),'limit':limit,'categorie':categorie} ,relative=false) }}" class="genric-btn primary-border circle">Précédent</a>
             {% endif %}
             {% if(page<page_max) %}
-                <a href="{{ path('menu_page', {'query':query,'offset':(offset+limit),'limit':limit,'categorie':categorie} ,relative=false) }}" class="genric-btn primary-border circle">Suivant</a>
+                <a href="{{ path('index', {'query':query,'offset':(offset+limit),'limit':limit,'categorie':categorie} ,relative=false) }}" class="genric-btn primary-border circle">Suivant</a>
 
             {%  endif %}
         </div>

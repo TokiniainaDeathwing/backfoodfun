@@ -33,6 +33,15 @@ class ImageService
         $product->setDescription($description);
         $product->setType($type);
         $entityManager=$this->re->getManager();
+        if($type==0||$type=='0'){
+            $ancienpricipale=$this->re
+                ->getRepository(Images::class)
+                ->findOneBy(['idplat'=>$idplat,'type'=>'0']);
+            if($ancienpricipale!=null){
+                $entityManager.remove($ancienpricipale);
+            }
+        }
+
         $entityManager->persist($product);
         $entityManager->flush();
     }

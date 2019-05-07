@@ -26,12 +26,12 @@
                         <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Description longue</label></div>
                         <div class="col-12 col-md-9"><textarea name="descriptionlongue" id="textarea-input"  rows="9" placeholder="Content..." class="form-control">{{ plat.descriptionlongue }}</textarea></div>
                     </div>
-
+                    {% if(plat.id=='') %}
                     <button type="submit" value="ajout" name="type" class="btn btn-success btn-sm">
                         <i class="fa fa-dot-circle-o"></i> Ajouter
                     </button>
-                    {% if(plat.id!='') %}
-                    <button type="submit" value="modification" name="type" class="btn btn-warning btn-sm">
+                    {% else %}
+                    <button type="submit" value="modification" name="type" class="btn btn-warning ">
                         <i class="fa fa-ban"></i> Modifier
                     </button>
 
