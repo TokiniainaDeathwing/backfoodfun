@@ -14,14 +14,19 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\DBAL\Driver\Connection;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Twig\Environment;
 
 class PlatController extends  AbstractController
 {
     // home page
     private $servicePlat;
-    public function index(Environment $twig,Request $request)
+    public function index(Environment $twig,Request $request,SessionInterface $session)
     {
+        $admin="hello mi amigo";
+        $session->set('admin',$admin);
+
+
         $this->servicePlat = new PlatService($this->getDoctrine());
         $serviceCategorie=new CategorieService($this->getDoctrine());
         $query=$request->query->get('query');
@@ -128,7 +133,7 @@ class PlatController extends  AbstractController
         $description= $request->get('description');
         $typeimage= $request->get('typeimage');
         $imageservice=new ImageService(($this->getDoctrine()));
-        echo "Image plat:".$type;
+       // echo "Image plat:".$type;
         if($type=="ajout"){
             $file=$request->files->get('fichier');
 
@@ -140,7 +145,7 @@ class PlatController extends  AbstractController
             $filename = $file->getClientOriginalName();
             $file->move($uploadDir, $filename);
             $url=$host."images/".$filename;
-            echo $url;
+            //echo $url;
             $imageservice->insererPlatImage($idplat,$url,$description,$typeimage);
 
         }else if($type=="suppression"){

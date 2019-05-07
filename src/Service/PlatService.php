@@ -38,6 +38,21 @@ class PlatService
         $product = $this->re
             ->getRepository(Plat::class)
             ->findPlatById($id);
+       // var_dump($product);
+        if(empty($product)){
+            $product=array();
+            $product['id']="";
+            $product['descriptioncourte']="";
+            $product['descriptionlongue']="";
+            $product['descriptionprix']="";
+            $product['nom']="";
+            $product['prix']="";
+            $product['url']="";
+            $product['descriptionimage']="";
+            $product['idimage']="";
+        }else{
+            $product=$product[0];
+        }
         return $product;
 
     }

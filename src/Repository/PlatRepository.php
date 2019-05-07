@@ -37,7 +37,7 @@ class PlatRepository extends ServiceEntityRepository
         $stmt->execute(['id' => $id]);
 
         // returns an array of arrays (i.e. a raw data set)
-        return $stmt->fetchAll()[0];
+        return $stmt->fetchAll();
     }
     public function findAllPlat(){
 

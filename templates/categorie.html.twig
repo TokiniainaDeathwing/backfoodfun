@@ -1,5 +1,33 @@
 {%  extends "base.html.twig" %}
 
 {% block contenu %}
+    <div class="card col-lg-6">
+        <div class="card-header">
+            <strong>Ajouter une catégorie</strong>
+        </div>
+        <div class="card-body card-block">
+            <form action="{{ path('update_categorie') }}" method="get" enctype="multipart/form-data" class="form-horizontal">
 
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Nom </label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="nom" value="" name="nom" placeholder="Text" class="form-control"><small class="form-text text-muted">Entrez le nom de la catégorie</small>
+                    </div>
+                </div>
+
+                <button type="submit" value="ajout" name="type" class="btn btn-success btn-sm">
+                    <i class="fa fa-dot-circle-o"></i> Ajouter
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="card col-lg-6">
+        <div class="card-header">
+            <strong>Liste des catégories</strong>
+        </div>
+        <div class="card-body card-block">
+        {% for categorie in categories %}
+            <p>  {{ categorie.nom }}   <a href="{{ path('update_categorie',{'id':categorie.id,'type':'suppression'}) }}" class="btn btn-danger btn-sm">Supprimer</a></p>
+        {% endfor %}
+        </div>
+    </div>
 {% endblock %}

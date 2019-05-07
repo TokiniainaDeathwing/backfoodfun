@@ -1,0 +1,34 @@
+{%  extends "base.html.twig" %}
+
+{% block menu %}
+
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+{% block contenu %}
+    <div class="card colg-lg-6">
+        <div class="card-header">
+            <strong>Connexion</strong> Administrateur
+        </div>
+        <div class="card-body card-block">
+            <form action="{{ path('connexion') }}" method="post" class="form-horizontal">
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="hf-email" class=" form-control-label">User</label></div>
+                    <div class="col-12 col-md-9"><input type="email" id="hf-email" name="user" placeholder="Enter User..." class="form-control"><span class="help-block">Please enter your username</span></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3"><label for="hf-password" class=" form-control-label">Password</label></div>
+                    <div class="col-12 col-md-9"><input type="password" id="hf-password" name="password" placeholder="Enter Password..." class="form-control"><span class="help-block">Please enter your password</span></div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary btn-sm">
+                        <i class="fa fa-dot-circle-o"></i> Connexion
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+{% endblock %}

@@ -114,6 +114,9 @@
             "./config/packages/sensio_framework_extra.yaml"
         ]
     },
+    "symfony/asset": {
+        "version": "v4.2.8"
+    },
     "symfony/cache": {
         "version": "v4.2.8"
     },
@@ -194,6 +197,9 @@
     "symfony/http-kernel": {
         "version": "v4.2.8"
     },
+    "symfony/inflector": {
+        "version": "v4.2.8"
+    },
     "symfony/maker-bundle": {
         "version": "1.0",
         "recipe": {
@@ -208,6 +214,9 @@
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.11.0"
+    },
+    "symfony/property-access": {
+        "version": "v4.2.8"
     },
     "symfony/routing": {
         "version": "4.2",
@@ -224,10 +233,28 @@
             "./config/routes.yaml"
         ]
     },
+    "symfony/security-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "f8a63faa0d9521526499c0a8f403c9964ecb0527"
+        },
+        "files": [
+            "./config/packages/security.yaml"
+        ]
+    },
     "symfony/security-core": {
         "version": "v4.2.8"
     },
     "symfony/security-csrf": {
+        "version": "v4.2.8"
+    },
+    "symfony/security-guard": {
+        "version": "v4.2.8"
+    },
+    "symfony/security-http": {
         "version": "v4.2.8"
     },
     "symfony/stopwatch": {

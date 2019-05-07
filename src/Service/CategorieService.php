@@ -23,6 +23,23 @@ class CategorieService
 
 
     }
+    public function deleteCategorie($id){
+        $product = $this->re
+            ->getRepository(Categorie::class)
+            ->find($id);
+
+        $entityManager=$this->re->getManager();
+        $entityManager->remove($product);
+        $entityManager->flush();
+    }
+    public function insererCategorie($nom){
+        $product=new Categorie();
+        $product->setNom($nom);
+
+        $entityManager=$this->re->getManager();
+        $entityManager->persist($product);
+        $entityManager->flush();
+    }
     public function deletePlatCategorie($idplat,$idcategorie){
         $product = $this->re
             ->getRepository(CategoriePlat::class)

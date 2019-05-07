@@ -16,3 +16,18 @@ update_plat:
 image_plat:
     path: /imageplat
     controller: App\Controller\PlatController::image_plat
+categorie:
+    path: /categorie
+    controller: App\Controller\CategorieController::index
+update_categorie:
+    path: /updatecategorie
+    controller: App\Controller\CategorieController::update
+login:
+    path: /login
+    controller: App\Controller\AdminController::index
+connexion:
+    path: /connexion
+    controller: App\Controller\AdminController::login
+deconnexion:
+    path: /login_page
+    controller: App\Controller\AdminController::deconnexion
