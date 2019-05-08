@@ -50,7 +50,7 @@ class PlatController extends  AbstractController
         if($categorie==null){
             $categorie="";
         }
-        $page=$offset/$limit +1;
+        $page=(int)$offset/$limit ;
         $data=array();
         $data['nombre']=$this->servicePlat->countPlat($query,$categorie);
         $data['categories']=$serviceCategorie->getCategories();

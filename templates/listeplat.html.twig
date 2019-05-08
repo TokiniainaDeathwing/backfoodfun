@@ -60,7 +60,7 @@
                 <a href="{{ path('index', {'query':query,'offset':(offset-limit),'limit':limit,'categorie':categorie} ,relative=false) }}" class="genric-btn primary-border circle">Précédent</a>
             {% endif %}
             {% if(page<page_max) %}
-                <a href="{{ path('index', {'query':query,'offset':(offset+limit),'limit':limit,'categorie':categorie} ,relative=false) }}" class="genric-btn primary-border circle">Suivant</a>
+                <a href="{{ path('index', {'query':query,'offset':(offset+limit),'limit':limit,'categorie':categorie} ,relative=false) }}" style="margin-left:90%" class="genric-btn primary-border circle">Suivant</a>
 
             {%  endif %}
         </div>
