@@ -15,8 +15,9 @@ Back Office de Food fun
   -Changer l'environnement en mod dev: ouvrir le fichier .env et  APP_ENV=dev
   -Activez le mode_rewrite,http_proxy d'apache
   -Activez l'extension pdo_mysql
-
-3.Pour changer la base de données modifier DATABASE_URL dans le fichier .env
+  -Modifier le parametre host dans config/services.yaml
+  
+3.Importez la base de données et changer DATABASE_URL dans le fichier .env
 
 4.Pour encodez un nouveau mot de passe ,lancez l'invite de commande:
   php bin/console security:encode-password
